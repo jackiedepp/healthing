@@ -529,10 +529,28 @@ class HealthDataStore: ObservableObject {
             let entities = try context.fetch(request)
 
             return try entities.compactMap { entity in
-                guard let encryptedData = entity.encryptedData else { return nil }
+                if entity.isEncrypted {
+                    guard let encryptedData = entity.encryptedData else { return nil }
+                    let encrypted = try JSONDecoder().decode(EncryptedData.self, from: encryptedData)
+                    return try SecurityManager.shared.decryptHealthData(encrypted, as: HealthingObservation.self)
+                }
 
-                let encrypted = try JSONDecoder().decode(EncryptedData.self, from: encryptedData)
-                return try SecurityManager.shared.decryptHealthData(encrypted, as: HealthingObservation.self)
+                guard let metadataData = entity.metadata else { return nil }
+                let metadata = try JSONDecoder().decode(HealthObservationMetadata.self, from: metadataData)
+                let deviceType = metadata.deviceType ?? "unknown"
+                let device = HealthingDevice(displayName: deviceType, type: deviceType)
+
+                return HealthingObservation(
+                    id: metadata.id,
+                    status: "final",
+                    code: "LA6115-9",
+                    subject: "patient",
+                    effectiveDateTime: metadata.timestamp,
+                    valueQuantity: nil,
+                    valueCodeableConcept: nil,
+                    device: device,
+                    category: metadata.category
+                )
             }
         }
     }

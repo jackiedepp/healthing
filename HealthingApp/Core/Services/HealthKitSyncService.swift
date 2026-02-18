@@ -25,40 +25,44 @@ class HealthKitSyncService: ObservableObject {
     private var anchoredObjectQueries: [String: HKAnchoredObjectQuery] = [:]
 
     // Supported HealthKit data types for sync
-    private let healthKitTypes: Set<HKSampleType> = [
+    private let healthKitTypes: Set<HKSampleType> = {
+        var types: [HKSampleType] = []
+
         // Vital Signs
-        HKObjectType.quantityType(forIdentifier: .heartRate)!,
-        HKObjectType.quantityType(forIdentifier: .bloodPressureSystolic)!,
-        HKObjectType.quantityType(forIdentifier: .bloodPressureDiastolic)!,
-        HKObjectType.quantityType(forIdentifier: .respiratoryRate)!,
-        HKObjectType.quantityType(forIdentifier: .oxygenSaturation)!,
-        HKObjectType.quantityType(forIdentifier: .bodyTemperature)!,
+        if let type = HKObjectType.quantityType(forIdentifier: .heartRate) { types.append(type) }
+        if let type = HKObjectType.quantityType(forIdentifier: .bloodPressureSystolic) { types.append(type) }
+        if let type = HKObjectType.quantityType(forIdentifier: .bloodPressureDiastolic) { types.append(type) }
+        if let type = HKObjectType.quantityType(forIdentifier: .respiratoryRate) { types.append(type) }
+        if let type = HKObjectType.quantityType(forIdentifier: .oxygenSaturation) { types.append(type) }
+        if let type = HKObjectType.quantityType(forIdentifier: .bodyTemperature) { types.append(type) }
 
         // Body Measurements
-        HKObjectType.quantityType(forIdentifier: .bodyMass)!,
-        HKObjectType.quantityType(forIdentifier: .height)!,
-        HKObjectType.quantityType(forIdentifier: .bodyMassIndex)!,
-        HKObjectType.quantityType(forIdentifier: .bodyFatPercentage)!,
+        if let type = HKObjectType.quantityType(forIdentifier: .bodyMass) { types.append(type) }
+        if let type = HKObjectType.quantityType(forIdentifier: .height) { types.append(type) }
+        if let type = HKObjectType.quantityType(forIdentifier: .bodyMassIndex) { types.append(type) }
+        if let type = HKObjectType.quantityType(forIdentifier: .bodyFatPercentage) { types.append(type) }
 
         // Activity & Fitness
-        HKObjectType.quantityType(forIdentifier: .stepCount)!,
-        HKObjectType.quantityType(forIdentifier: .distanceWalkingRunning)!,
-        HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)!,
-        HKObjectType.quantityType(forIdentifier: .basalEnergyBurned)!,
-        HKObjectType.quantityType(forIdentifier: .flightsClimbed)!,
+        if let type = HKObjectType.quantityType(forIdentifier: .stepCount) { types.append(type) }
+        if let type = HKObjectType.quantityType(forIdentifier: .distanceWalkingRunning) { types.append(type) }
+        if let type = HKObjectType.quantityType(forIdentifier: .activeEnergyBurned) { types.append(type) }
+        if let type = HKObjectType.quantityType(forIdentifier: .basalEnergyBurned) { types.append(type) }
+        if let type = HKObjectType.quantityType(forIdentifier: .flightsClimbed) { types.append(type) }
 
         // Sleep & Recovery
-        HKObjectType.categoryType(forIdentifier: .sleepAnalysis)!,
-        HKObjectType.quantityType(forIdentifier: .restingHeartRate)!,
-        HKObjectType.quantityType(forIdentifier: .heartRateVariabilitySDNN)!,
+        if let type = HKObjectType.categoryType(forIdentifier: .sleepAnalysis) { types.append(type) }
+        if let type = HKObjectType.quantityType(forIdentifier: .restingHeartRate) { types.append(type) }
+        if let type = HKObjectType.quantityType(forIdentifier: .heartRateVariabilitySDNN) { types.append(type) }
 
         // Nutrition & Hydration
-        HKObjectType.quantityType(forIdentifier: .dietaryEnergyConsumed)!,
-        HKObjectType.quantityType(forIdentifier: .dietaryWater)!,
+        if let type = HKObjectType.quantityType(forIdentifier: .dietaryEnergyConsumed) { types.append(type) }
+        if let type = HKObjectType.quantityType(forIdentifier: .dietaryWater) { types.append(type) }
 
         // Workouts
-        HKObjectType.workoutType()
-    ]
+        types.append(HKObjectType.workoutType())
+
+        return Set(types)
+    }()
 
     private init() {
         provider = HealthKitProviderFactory.makeProvider(source: .phone)
@@ -70,12 +74,26 @@ class HealthKitSyncService: ObservableObject {
         guard provider.isHealthDataAvailable() else {
             throw HealthKitError.healthDataNotAvailable
         }
+        guard !healthKitTypes.isEmpty else {
+            throw HealthKitError.healthDataNotAvailable
+        }
 
         try await provider.requestAuthorization(read: healthKitTypes)
 
+        let authorized = healthKitTypes.allSatisfy { type in
+            provider.authorizationStatus(for: type) == .sharingAuthorized
+        }
+
         await MainActor.run {
-            isAuthorized = true
+            isAuthorized = authorized
             lastSyncDate = UserDefaults.standard.object(forKey: "lastHealthKitSync") as? Date
+            if !authorized {
+                errorMessage = HealthKitError.authorizationDenied.localizedDescription
+            }
+        }
+
+        guard authorized else {
+            throw HealthKitError.authorizationDenied
         }
 
         await startBackgroundObservers()
@@ -85,12 +103,23 @@ class HealthKitSyncService: ObservableObject {
     /// Check current HealthKit authorization status
     private func checkHealthKitAuthorization() {
         guard provider.isHealthDataAvailable() else { return }
+        guard !healthKitTypes.isEmpty else {
+            isAuthorized = false
+            return
+        }
 
         let authorized = healthKitTypes.allSatisfy { type in
             provider.authorizationStatus(for: type) == .sharingAuthorized
         }
 
         isAuthorized = authorized
+        lastSyncDate = UserDefaults.standard.object(forKey: "lastHealthKitSync") as? Date
+
+        if authorized {
+            Task {
+                await startBackgroundObservers()
+            }
+        }
     }
 
     /// Start background observers for real-time sync
@@ -430,6 +459,9 @@ private struct HealthKitMapping {
         switch identifier {
         case HKQuantityTypeIdentifier.heartRate.rawValue:
             return HKUnit(from: "count/min")
+        case HKQuantityTypeIdentifier.restingHeartRate.rawValue,
+             HKQuantityTypeIdentifier.walkingHeartRateAverage.rawValue:
+            return HKUnit(from: "count/min")
         case HKQuantityTypeIdentifier.bloodPressureSystolic.rawValue,
              HKQuantityTypeIdentifier.bloodPressureDiastolic.rawValue:
             return HKUnit.millimeterOfMercury()
@@ -443,15 +475,21 @@ private struct HealthKitMapping {
             return HKUnit.gramUnit(with: .kilo)
         case HKQuantityTypeIdentifier.height.rawValue:
             return HKUnit.meter()
+        case HKQuantityTypeIdentifier.bodyFatPercentage.rawValue:
+            return HKUnit.percent()
         case HKQuantityTypeIdentifier.stepCount.rawValue,
              HKQuantityTypeIdentifier.flightsClimbed.rawValue:
             return HKUnit.count()
+        case HKQuantityTypeIdentifier.heartRateVariabilitySDNN.rawValue:
+            return HKUnit.secondUnit(with: .milli)
         case HKQuantityTypeIdentifier.activeEnergyBurned.rawValue,
              HKQuantityTypeIdentifier.basalEnergyBurned.rawValue,
              HKQuantityTypeIdentifier.dietaryEnergyConsumed.rawValue:
             return HKUnit.kilocalorie()
         case HKQuantityTypeIdentifier.distanceWalkingRunning.rawValue:
             return HKUnit.meter()
+        case HKQuantityTypeIdentifier.dietaryWater.rawValue:
+            return HKUnit.liter()
         default:
             return HKUnit.count()
         }
