@@ -1,0 +1,242 @@
+/*
+  Localizable.strings (English)
+  HealthingApp
+
+  Created on 2026-01-27.
+*/
+
+// MARK: - App General
+"app_name" = "Healthing";
+"app_tagline" = "Your Personal Health Companion";
+
+// MARK: - Authentication
+"unlock_with_faceid" = "Unlock with Face ID";
+"unlock_with_touchid" = "Unlock with Touch ID";
+"unlock_with_passcode" = "Unlock with Passcode";
+"authentication_failed" = "Authentication failed. Please try again.";
+"privacy_protected" = "Privacy Protected";
+"privacy_notice" = "All your health data is encrypted and stored securely on your device. We never share your personal health information.";
+
+// MARK: - Onboarding
+"welcome_title" = "Welcome to Healthing";
+"welcome_subtitle" = "Your comprehensive health companion";
+"complete_health_tracking" = "Complete Health Tracking";
+"complete_health_tracking_desc" = "Track all your health metrics from multiple sources including Apple Watch, Garmin devices, and manual entries.";
+"medical_records_management" = "Medical Records Management";
+"medical_records_management_desc" = "Securely store and organize your medical documents, lab results, and healthcare information.";
+"ai_powered_insights" = "AI-Powered Insights";
+"ai_powered_insights_desc" = "Get personalized health insights and recommendations based on your data, all processed locally on your device.";
+"privacy_first" = "Privacy First";
+"privacy_first_desc" = "Your health data is encrypted and stays on your device. We never sell or share your personal information.";
+
+"your_privacy_matters" = "Your Privacy Matters";
+"understanding_data_protection" = "Understanding how we protect your health data";
+"local_data_processing" = "Local Data Processing";
+"local_data_processing_desc" = "All your sensitive health data is processed locally on your device using advanced encryption.";
+"optional_cloud_sync" = "Optional Cloud Sync";
+"optional_cloud_sync_desc" = "Only non-sensitive metadata can be synced to iCloud for backup. Full health data stays on your device.";
+"no_data_sharing" = "No Data Sharing";
+"no_data_sharing_desc" = "We never sell, share, or analyze your personal health information. Your data belongs to you.";
+"encryption_standards" = "Encryption Standards";
+"encryption_standards_desc" = "All data is protected with AES-256 encryption and biometric authentication.";
+
+"health_data_access" = "Health Data Access";
+"connect_apple_health" = "Connect your Apple Health data for comprehensive tracking";
+"heart_rate_vitals" = "Heart Rate & Vitals";
+"heart_rate_vitals_desc" = "Track your heart rate, blood pressure, and other vital signs";
+"activity_fitness" = "Activity & Fitness";
+"activity_fitness_desc" = "Monitor steps, workouts, active energy, and exercise minutes";
+"sleep_analysis" = "Sleep Analysis";
+"sleep_analysis_desc" = "Analyze your sleep patterns and duration";
+"body_measurements" = "Body Measurements";
+"body_measurements_desc" = "Track weight, height, BMI, and body composition";
+"respiratory_health" = "Respiratory Health";
+"respiratory_health_desc" = "Monitor VO2 max and respiratory rate";
+
+"grant_health_access" = "Grant Health Access";
+"requesting_access" = "Requesting Access...";
+"access_granted" = "Access Granted";
+"access_denied" = "Access Denied";
+"permission_required" = "Permission Required";
+"requesting_permission" = "Requesting Permission...";
+
+"create_your_account" = "Create Your Account";
+"secure_with_apple" = "Secure your health data with Sign in with Apple";
+"enhanced_security" = "Enhanced Security";
+"enhanced_security_desc" = "Two-factor authentication and device-level security";
+"backup_sync" = "Backup & Sync";
+"backup_sync_desc" = "Safely backup your app preferences and device settings";
+"personalized_experience" = "Personalized Experience";
+"personalized_experience_desc" = "Customize the app to match your health goals";
+"privacy_protection" = "Privacy Protection";
+"privacy_protection_desc" = "Your email remains private with Apple's privacy features";
+"skip_for_now" = "Skip for Now";
+"get_started" = "Get Started";
+"account_created_successfully" = "Account created successfully!";
+
+// MARK: - Main Navigation
+"dashboard" = "Dashboard";
+"health_data" = "Health Data";
+"records" = "Records";
+"devices" = "Devices";
+"settings" = "Settings";
+
+// MARK: - Dashboard
+"good_morning" = "Good morning";
+"good_afternoon" = "Good afternoon";
+"good_evening" = "Good evening";
+"health_summary" = "Here's your health summary";
+"quick_stats" = "Quick Stats";
+"health_insights" = "Health Insights";
+"health_trends" = "Health Trends";
+"quick_actions" = "Quick Actions";
+"add_measurement" = "Add Measurement";
+"upload_document" = "Upload Document";
+"sync_devices" = "Sync Devices";
+"view_reports" = "View Reports";
+
+// MARK: - Health Data
+"vitals" = "Vitals";
+"activity" = "Activity";
+"body" = "Body";
+"respiratory" = "Respiratory";
+"no_health_data" = "No Health Data";
+"connect_devices_or_add" = "Connect your devices or add measurements manually to see your health data here.";
+"heart_rate" = "Heart Rate";
+"steps" = "Steps";
+"active_energy" = "Active Energy";
+"today" = "Today";
+"yesterday" = "Yesterday";
+"week" = "Week";
+"month" = "Month";
+
+// MARK: - Medical Records
+"medical_records" = "Medical Records";
+"no_medical_records" = "No Medical Records";
+"organize_documents" = "Keep all your medical documents organized and secure in one place.";
+"add_document" = "Add Document";
+"scan_documents" = "Scan prescriptions, lab results, and reports";
+"encrypted_storage" = "All documents encrypted and stored locally";
+"take_photo" = "Take Photo";
+"choose_from_photos" = "Choose from Photos";
+"import_document" = "Import Document";
+"lab_results" = "Lab Results";
+"prescription" = "Prescription";
+"imaging" = "Imaging";
+
+// MARK: - Devices
+"connected_devices" = "Connected Devices";
+"available_devices" = "Available Devices";
+"data_sources" = "Data Sources";
+"sync_settings" = "Sync Settings";
+"add_device" = "Add Device";
+"connect_your_device" = "Connect Your Device";
+"follow_instructions" = "Follow the instructions to connect your wearable device and start tracking your health data automatically.";
+"apple_watch" = "Apple Watch";
+"connect_via_apple_health" = "Connect via Apple Health";
+"garmin_device" = "Garmin Device";
+"connect_via_garmin_connect" = "Connect via Garmin Connect";
+"other_fitness_trackers" = "Other Fitness Trackers";
+"support_coming_soon" = "Support coming soon";
+"connected" = "Connected";
+"connecting" = "Connecting";
+"disconnected" = "Disconnected";
+"error" = "Error";
+"last_sync" = "Last sync";
+"apple_health" = "Apple Health";
+"iphone_health_data" = "iPhone health data and connected apps";
+"manual_entry" = "Manual Entry";
+"add_measurements_manually" = "Add measurements manually";
+"add_data" = "Add Data";
+"auto_sync" = "Auto Sync";
+"frequency" = "Frequency";
+"real_time" = "Real-time";
+"every_hour" = "Every hour";
+"once_daily" = "Once daily";
+
+// MARK: - Settings
+"profile" = "Profile";
+"privacy_security" = "Privacy & Security";
+"data_sync" = "Data & Sync";
+"notifications" = "Notifications";
+"app_settings" = "App Settings";
+"support_information" = "Support & Information";
+"privacy_settings" = "Privacy Settings";
+"control_data_collection" = "Control what data is collected and how it's used";
+"security_settings" = "Security Settings";
+"biometric_auth_app_lock" = "Biometric authentication and app lock";
+"data_retention" = "Data Retention";
+"manage_data_storage" = "Manage how long data is stored";
+"icloud_sync" = "iCloud Sync";
+"export_data" = "Export Data";
+"download_health_data" = "Download your health data";
+"data_cleanup" = "Data Cleanup";
+"remove_old_data" = "Remove old or unnecessary data";
+"health_reminders_insights" = "Health reminders and insights";
+"appearance" = "Appearance";
+"units" = "Units";
+"metric_imperial_mixed" = "Metric, Imperial, or Mixed";
+"language" = "Language";
+"help_support" = "Help & Support";
+"faqs_guides_contact" = "FAQs, guides, and contact support";
+"about_healthing" = "About Healthing";
+"send_feedback" = "Send Feedback";
+"help_improve_app" = "Help us improve the app";
+"sign_out" = "Sign Out";
+"sign_out_account" = "Sign out of your account";
+"delete_account" = "Delete Account";
+"delete_account_data" = "Permanently delete your account and data";
+"edit_profile" = "Edit Profile";
+"export_your_data" = "Export Your Data";
+"preparing_data" = "Preparing your data...";
+"download_secure_format" = "Download all your health data in a secure, encrypted format. This includes all measurements, documents, and app settings.";
+
+// MARK: - OCR and Document Processing
+"processing_document" = "Processing document...";
+"text_recognition_complete" = "Text recognition complete";
+"extracting_medical_info" = "Extracting medical information...";
+"ocr_failed" = "Failed to process document";
+"no_text_detected" = "No text detected in document";
+"multiple_languages_detected" = "Multiple languages detected";
+"chinese_text_detected" = "Chinese text detected";
+"english_text_detected" = "English text detected";
+"medical_terms_found" = "Medical terms found";
+"dates_extracted" = "Dates extracted";
+"medications_found" = "Medications found";
+"diagnoses_found" = "Diagnoses found";
+"vitals_found" = "Vital signs found";
+
+// MARK: - Language Settings
+"system" = "System";
+"english" = "English";
+"simplified_chinese" = "Simplified Chinese";
+"traditional_chinese" = "Traditional Chinese";
+"select_language" = "Select Language";
+"language_changed" = "Language changed successfully";
+"restart_required" = "Please restart the app to apply language changes";
+
+// MARK: - Error Messages
+"error_occurred" = "An error occurred";
+"try_again" = "Try again";
+"network_error" = "Network connection error";
+"data_sync_failed" = "Data synchronization failed";
+"document_upload_failed" = "Document upload failed";
+"ocr_processing_failed" = "OCR processing failed";
+"please_check_connection" = "Please check your internet connection";
+
+// MARK: - Common Actions
+"save" = "Save";
+"cancel" = "Cancel";
+"delete" = "Delete";
+"edit" = "Edit";
+"add" = "Add";
+"done" = "Done";
+"continue" = "Continue";
+"back" = "Back";
+"next" = "Next";
+"ok" = "OK";
+"yes" = "Yes";
+"no" = "No";
+"confirm" = "Confirm";
+"retry" = "Retry";
+"loading" = "Loading...";

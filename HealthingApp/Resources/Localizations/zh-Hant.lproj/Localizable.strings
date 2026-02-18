@@ -1,0 +1,242 @@
+/*
+  Localizable.strings (Traditional Chinese)
+  HealthingApp
+
+  Created on 2026-01-27.
+*/
+
+// MARK: - App General
+"app_name" = "健康管家";
+"app_tagline" = "您的個人健康夥伴";
+
+// MARK: - Authentication
+"unlock_with_faceid" = "使用面容ID解鎖";
+"unlock_with_touchid" = "使用觸控ID解鎖";
+"unlock_with_passcode" = "使用密碼解鎖";
+"authentication_failed" = "身份驗證失敗，請重試";
+"privacy_protected" = "隱私保護";
+"privacy_notice" = "您的所有健康數據都經過加密並安全存儲在您的設備上。我們絕不會分享您的個人健康資訊。";
+
+// MARK: - Onboarding
+"welcome_title" = "歡迎使用健康管家";
+"welcome_subtitle" = "您的全面健康夥伴";
+"complete_health_tracking" = "完整的健康追蹤";
+"complete_health_tracking_desc" = "從多個來源追蹤您的所有健康指標，包括Apple Watch、Garmin設備和手動輸入。";
+"medical_records_management" = "醫療記錄管理";
+"medical_records_management_desc" = "安全地存儲和整理您的醫療文件、實驗室結果和醫療保健資訊。";
+"ai_powered_insights" = "AI驅動的洞察";
+"ai_powered_insights_desc" = "基於您的數據獲得個性化的健康洞察和建議，所有數據都在您的設備上本地處理。";
+"privacy_first" = "隱私優先";
+"privacy_first_desc" = "您的健康數據經過加密並保留在您的設備上。我們絕不會出售或分享您的個人資訊。";
+
+"your_privacy_matters" = "您的隱私很重要";
+"understanding_data_protection" = "了解我們如何保護您的健康數據";
+"local_data_processing" = "本地數據處理";
+"local_data_processing_desc" = "所有敏感健康數據都使用先進的加密技術在您的設備上本地處理。";
+"optional_cloud_sync" = "可選雲端同步";
+"optional_cloud_sync_desc" = "只有非敏感的元數據可以同步到iCloud進行備份。完整的健康數據保留在您的設備上。";
+"no_data_sharing" = "不共享數據";
+"no_data_sharing_desc" = "我們絕不會出售、分享或分析您的個人健康資訊。您的數據屬於您自己。";
+"encryption_standards" = "加密標準";
+"encryption_standards_desc" = "所有數據都受到AES-256加密和生物識別認證的保護。";
+
+"health_data_access" = "健康數據存取";
+"connect_apple_health" = "連接您的Apple Health數據以進行全面追蹤";
+"heart_rate_vitals" = "心率和生命體徵";
+"heart_rate_vitals_desc" = "追蹤您的心率、血壓和其他生命體徵";
+"activity_fitness" = "活動和健身";
+"activity_fitness_desc" = "監測步數、鍛煉、活躍能量消耗和運動分鐘數";
+"sleep_analysis" = "睡眠分析";
+"sleep_analysis_desc" = "分析您的睡眠模式和持續時間";
+"body_measurements" = "身體測量";
+"body_measurements_desc" = "追蹤體重、身高、BMI和身體成分";
+"respiratory_health" = "呼吸健康";
+"respiratory_health_desc" = "監測最大攝氧量和呼吸頻率";
+
+"grant_health_access" = "授予健康存取權限";
+"requesting_access" = "正在請求存取權限...";
+"access_granted" = "存取權限已授予";
+"access_denied" = "存取權限被拒絕";
+"permission_required" = "需要權限";
+"requesting_permission" = "正在請求權限...";
+
+"create_your_account" = "創建您的帳戶";
+"secure_with_apple" = "使用Apple登入保護您的健康數據";
+"enhanced_security" = "增強安全性";
+"enhanced_security_desc" = "雙重身份驗證和設備級安全";
+"backup_sync" = "備份和同步";
+"backup_sync_desc" = "安全備份您的應用偏好設定和設備設定";
+"personalized_experience" = "個性化體驗";
+"personalized_experience_desc" = "定製應用以匹配您的健康目標";
+"privacy_protection" = "隱私保護";
+"privacy_protection_desc" = "您的電子郵件通過Apple的隱私功能保持私密";
+"skip_for_now" = "暫時跳過";
+"get_started" = "開始使用";
+"account_created_successfully" = "帳戶創建成功！";
+
+// MARK: - Main Navigation
+"dashboard" = "儀表板";
+"health_data" = "健康數據";
+"records" = "記錄";
+"devices" = "設備";
+"settings" = "設定";
+
+// MARK: - Dashboard
+"good_morning" = "早上好";
+"good_afternoon" = "下午好";
+"good_evening" = "晚上好";
+"health_summary" = "這是您的健康概況";
+"quick_stats" = "快速統計";
+"health_insights" = "健康洞察";
+"health_trends" = "健康趨勢";
+"quick_actions" = "快速操作";
+"add_measurement" = "添加測量";
+"upload_document" = "上傳文件";
+"sync_devices" = "同步設備";
+"view_reports" = "檢視報告";
+
+// MARK: - Health Data
+"vitals" = "生命體徵";
+"activity" = "活動";
+"body" = "身體";
+"respiratory" = "呼吸";
+"no_health_data" = "無健康數據";
+"connect_devices_or_add" = "連接您的設備或手動添加測量數據以在此處檢視您的健康數據。";
+"heart_rate" = "心率";
+"steps" = "步數";
+"active_energy" = "活躍能量";
+"today" = "今天";
+"yesterday" = "昨天";
+"week" = "週";
+"month" = "月";
+
+// MARK: - Medical Records
+"medical_records" = "醫療記錄";
+"no_medical_records" = "無醫療記錄";
+"organize_documents" = "將所有醫療文件組織並安全地保存在一個地方。";
+"add_document" = "添加文件";
+"scan_documents" = "掃描處方、實驗室結果和報告";
+"encrypted_storage" = "所有文件均經過加密並本地存儲";
+"take_photo" = "拍照";
+"choose_from_photos" = "從相片中選擇";
+"import_document" = "匯入文件";
+"lab_results" = "實驗室結果";
+"prescription" = "處方";
+"imaging" = "影像";
+
+// MARK: - Devices
+"connected_devices" = "已連接設備";
+"available_devices" = "可用設備";
+"data_sources" = "數據來源";
+"sync_settings" = "同步設定";
+"add_device" = "添加設備";
+"connect_your_device" = "連接您的設備";
+"follow_instructions" = "按照說明連接您的可穿戴設備並開始自動追蹤您的健康數據。";
+"apple_watch" = "Apple Watch";
+"connect_via_apple_health" = "通過Apple Health連接";
+"garmin_device" = "Garmin設備";
+"connect_via_garmin_connect" = "通過Garmin Connect連接";
+"other_fitness_trackers" = "其他健身追蹤器";
+"support_coming_soon" = "即將支援";
+"connected" = "已連接";
+"connecting" = "正在連接";
+"disconnected" = "已斷開";
+"error" = "錯誤";
+"last_sync" = "上次同步";
+"apple_health" = "Apple Health";
+"iphone_health_data" = "iPhone健康數據和已連接的應用";
+"manual_entry" = "手動輸入";
+"add_measurements_manually" = "手動添加測量數據";
+"add_data" = "添加數據";
+"auto_sync" = "自動同步";
+"frequency" = "頻率";
+"real_time" = "即時";
+"every_hour" = "每小時";
+"once_daily" = "每天一次";
+
+// MARK: - Settings
+"profile" = "個人資料";
+"privacy_security" = "隱私和安全";
+"data_sync" = "數據同步";
+"notifications" = "通知";
+"app_settings" = "應用設定";
+"support_information" = "支援和資訊";
+"privacy_settings" = "隱私設定";
+"control_data_collection" = "控制收集哪些數據以及如何使用";
+"security_settings" = "安全設定";
+"biometric_auth_app_lock" = "生物識別認證和應用鎖定";
+"data_retention" = "數據保留";
+"manage_data_storage" = "管理數據存儲時間";
+"icloud_sync" = "iCloud同步";
+"export_data" = "匯出數據";
+"download_health_data" = "下載您的健康數據";
+"data_cleanup" = "數據清理";
+"remove_old_data" = "刪除舊的或不必要的數據";
+"health_reminders_insights" = "健康提醒和洞察";
+"appearance" = "外觀";
+"units" = "單位";
+"metric_imperial_mixed" = "公制、英制或混合";
+"language" = "語言";
+"help_support" = "說明和支援";
+"faqs_guides_contact" = "常見問題、指南和聯繫支援";
+"about_healthing" = "關於健康管家";
+"send_feedback" = "發送回饋";
+"help_improve_app" = "幫助我們改進應用";
+"sign_out" = "登出";
+"sign_out_account" = "登出您的帳戶";
+"delete_account" = "刪除帳戶";
+"delete_account_data" = "永久刪除您的帳戶和數據";
+"edit_profile" = "編輯個人資料";
+"export_your_data" = "匯出您的數據";
+"preparing_data" = "正在準備您的數據...";
+"download_secure_format" = "以安全、加密的格式下載您的所有健康數據。這包括所有測量、文件和應用設定。";
+
+// MARK: - OCR and Document Processing
+"processing_document" = "正在處理文件...";
+"text_recognition_complete" = "文字識別完成";
+"extracting_medical_info" = "正在提取醫療資訊...";
+"ocr_failed" = "文件處理失敗";
+"no_text_detected" = "文件中未檢測到文字";
+"multiple_languages_detected" = "檢測到多種語言";
+"chinese_text_detected" = "檢測到中文文字";
+"english_text_detected" = "檢測到英文文字";
+"medical_terms_found" = "發現醫學術語";
+"dates_extracted" = "已提取日期";
+"medications_found" = "發現藥物";
+"diagnoses_found" = "發現診斷";
+"vitals_found" = "發現生命體徵";
+
+// MARK: - Language Settings
+"system" = "跟隨系統";
+"english" = "英語";
+"simplified_chinese" = "簡體中文";
+"traditional_chinese" = "繁體中文";
+"select_language" = "選擇語言";
+"language_changed" = "語言更改成功";
+"restart_required" = "請重新啟動應用以應用語言更改";
+
+// MARK: - Error Messages
+"error_occurred" = "發生錯誤";
+"try_again" = "重試";
+"network_error" = "網絡連接錯誤";
+"data_sync_failed" = "數據同步失敗";
+"document_upload_failed" = "文件上傳失敗";
+"ocr_processing_failed" = "OCR處理失敗";
+"please_check_connection" = "請檢查您的網絡連接";
+
+// MARK: - Common Actions
+"save" = "保存";
+"cancel" = "取消";
+"delete" = "刪除";
+"edit" = "編輯";
+"add" = "添加";
+"done" = "完成";
+"continue" = "繼續";
+"back" = "返回";
+"next" = "下一步";
+"ok" = "確定";
+"yes" = "是";
+"no" = "否";
+"confirm" = "確認";
+"retry" = "重試";
+"loading" = "載入中...";
